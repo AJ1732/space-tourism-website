@@ -9,7 +9,7 @@
 
 /* GRID LAYOUT */
 @utility content-grid {
-  --padding-inline: 1rem;
+  --padding-inline: 1.5rem;
   --content-max-width: 69.375rem;
   --breakout-max-width: 1368px;
   --layout-max-width: 1440px;
