@@ -1,5 +1,7 @@
 <script setup lang="ts"></script>
 
 <template>
-  <main class="">Home View Page</main>
+  <main class="content-grid">
+    <section>Home View Page</section>
+  </main>
 </template>

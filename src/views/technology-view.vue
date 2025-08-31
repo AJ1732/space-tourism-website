@@ -1,5 +1,7 @@
 <script setup lang="ts"></script>
 
 <template>
-  <main>Technology View Page</main>
+  <main class="content-grid">
+    <section>Technology View Page</section>
+  </main>
 </template>

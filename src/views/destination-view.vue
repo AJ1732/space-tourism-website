@@ -1,5 +1,7 @@
 <script setup lang="ts"></script>
 
 <template>
-  <main>Destination View Page</main>
+  <main class="content-grid">
+    <section>Destination View Page</section>
+  </main>
 </template>
