@@ -17,7 +17,7 @@ const handleClick = () => (open.value = false)
 
 <template>
   <Sheet v-model:open="open">
-    <SheetTrigger class="mx-300 lg:hidden">
+    <SheetTrigger class="mx-300 md:hidden">
       <MenuIcon />
     </SheetTrigger>
     <SheetContent class="w-72 space-y-600 bg-[rgba(11,_13,_23,_0.15)] backdrop-blur-2xl">

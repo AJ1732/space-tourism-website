@@ -11,7 +11,7 @@ const isActive = (href: string) => route.path === href
 
 <template>
   <header class="flex items-center justify-between py-300 lg:pt-10">
-    <div class="mx-300 size-12 min-w-12 rounded-full bg-white transition-transform lg:mx-800"></div>
+    <div class="mx-10 size-12 min-w-12 rounded-full bg-white transition-transform lg:mx-800"></div>
 
     <!-- DESKTOP NAVIGATION -->
     <hr
@@ -22,8 +22,8 @@ const isActive = (href: string) => route.path === href
     <nav
       :class="
         cn(
-          'flex h-24 min-w-[46rem] justify-end bg-white/5 px-800 backdrop-blur-2xl',
-          'max-lg:hidden',
+          'flex h-24 justify-end bg-white/5 px-800 backdrop-blur-2xl max-lg:pr-500 lg:min-w-[46rem]',
+          'max-md:hidden',
         )
       "
     >
