@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue'
+
 import { DESTINATION_TABS } from '@/constants/destination'
 import { cn } from '@/lib/utils'
 
@@ -14,23 +15,29 @@ const handleTabChange = (tab: keyof typeof DESTINATION_TABS) => (activeTab.value
   <main class="content-grid grid-rows-[auto_1fr] space-y-300 py-300 lg:py-600">
     <header>
       <h2
-        class="font-barlow-condensed flex items-center gap-300 text-[1.75rem] font-normal tracking-[0.25rem] uppercase"
+        class="font-barlow-condensed flex items-center gap-6 text-base font-normal tracking-[0.25rem] uppercase max-md:justify-center sm:text-xl md:gap-300 md:text-[1.75rem]"
       >
         <span class="font-bold tracking-[0.295rem] opacity-25">01</span>
         Pick your destination
       </h2>
     </header>
 
-    <section class="grid grid-cols-2 items-center">
+    <section
+      :class="
+        cn('grid items-center lg:grid-cols-2', 'max-lg:justify-items-center max-lg:text-center')
+      "
+    >
       <figure
-        class="relative flex size-[30rem] items-center justify-center overflow-hidden rounded-full"
+        class="relative my-7 flex size-[9.375rem] items-center justify-center overflow-hidden rounded-full max-lg:mx-auto sm:size-80 md:size-[30rem]"
       >
         <div class="bg-primary-300 grid size-full place-content-center">
           {{ destination.image }}
         </div>
       </figure>
-      <div class="max-w-[27.8125rem] space-y-500 lg:mx-12">
-        <div class="font-barlow-condensed flex items-center gap-300 tracking-[0.125rem]">
+      <div class="space-y-500 max-md:py-400 sm:max-w-[32.125rem] lg:mx-12 lg:max-w-[27.8125rem]">
+        <div
+          class="font-barlow-condensed flex items-center gap-400 tracking-[0.125rem] max-lg:justify-center lg:gap-300"
+        >
           <button
             v-for="tab in tabs"
             :key="tab"
@@ -48,14 +55,18 @@ const handleTabChange = (tab: keyof typeof DESTINATION_TABS) => (activeTab.value
           </button>
         </div>
         <article>
-          <h3 class="font-bellefair -mt-4 text-[6rem] font-normal uppercase">
+          <h3
+            class="font-bellefair -mt-6 text-[3.5rem] font-normal uppercase md:-mt-4 md:text-[6rem]"
+          >
             {{ destination.destination }}
           </h3>
-          <p class="text-primary-300 font-barlow text-lg leading-[180%]">
+          <p
+            class="text-primary-300 font-barlow text-[0.9375rem] leading-[180%] text-pretty md:text-lg"
+          >
             {{ destination.description }}
           </p>
-          <hr class="my-500 border-[0.0625rem] border-white opacity-25" />
-          <dl class="grid gap-6 md:grid-cols-2">
+          <hr class="border-px my-500 border-white opacity-25" />
+          <dl class="grid justify-items-center gap-6 md:grid-cols-2">
             <div
               v-for="{ title, value } in destination.details"
               :key="title"

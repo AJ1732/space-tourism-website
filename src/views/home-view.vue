@@ -3,7 +3,7 @@
 <template>
   <main class="content-grid py-1600">
     <div
-      class="flex items-center justify-center gap-16 max-lg:flex-col max-lg:text-center lg:items-end lg:justify-between"
+      class="flex items-center justify-center gap-16 max-lg:flex-col max-lg:text-center lg:justify-between"
     >
       <section class="w-full max-w-lg lg:max-w-[33.75rem]">
         <h2
