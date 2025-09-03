@@ -10,8 +10,10 @@ const isActive = (href: string) => route.path === href
 </script>
 
 <template>
-  <header class="flex items-center justify-between py-300 lg:pt-10">
-    <div class="ml-300 mr-10 size-12 min-w-12 rounded-full bg-white transition-transform lg:mx-800"></div>
+  <header class="flex items-center justify-between py-300 md:max-lg:pt-0 lg:pt-10">
+    <div
+      class="mr-10 ml-300 size-12 min-w-12 rounded-full bg-white transition-transform lg:mx-800"
+    ></div>
 
     <!-- DESKTOP NAVIGATION -->
     <hr
