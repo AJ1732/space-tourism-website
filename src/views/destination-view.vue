@@ -3,6 +3,7 @@ import { computed, ref } from 'vue'
 
 import { DESTINATION_TABS } from '@/constants/destination'
 import { cn } from '@/lib/utils'
+import { PageHeader } from '@/components/elements'
 
 const tabs = ['moon', 'mars', 'europa', 'titan']
 const activeTab = ref('moon')
@@ -13,14 +14,7 @@ const handleTabChange = (tab: keyof typeof DESTINATION_TABS) => (activeTab.value
 
 <template>
   <main class="content-grid grid-rows-[auto_1fr] space-y-300 py-300 lg:py-600">
-    <header>
-      <h2
-        class="font-barlow-condensed flex items-center gap-6 text-base font-normal tracking-[0.25rem] uppercase max-md:justify-center sm:text-xl md:gap-300 md:text-[1.75rem]"
-      >
-        <span class="font-bold tracking-[0.295rem] opacity-25">01</span>
-        Pick your destination
-      </h2>
-    </header>
+    <PageHeader pageNum="01">Pick your destination</PageHeader>
 
     <section
       :class="
