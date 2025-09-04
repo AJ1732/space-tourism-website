@@ -1,6 +1,15 @@
 <script setup lang="ts">
+import { computed, ref } from 'vue'
+
 import { PageHeader } from '@/components/elements'
+import { SPACE_TECH_TABS } from '@/constants/technology'
 import { cn } from '@/lib/utils'
+
+const tabs = [1, 2, 3]
+const activeTab = ref(1)
+
+const space_tech = computed(() => SPACE_TECH_TABS[activeTab.value])
+const handleTabChange = (tab: keyof typeof SPACE_TECH_TABS) => (activeTab.value = tab)
 </script>
 
 <template>
@@ -20,13 +29,14 @@ import { cn } from '@/lib/utils'
     >
       <menu class="font-bellefair mb-500 flex gap-400 max-xl:mt-400 xl:flex-col">
         <li
-          v-for="tab in [1, 2, 3]"
+          v-for="tab in tabs"
           :key="tab"
+          @click="handleTabChange(tab)"
           :class="
             cn(
-              'grid size-10 place-content-center rounded-full border border-white/25 text-lg md:size-14 lg:size-20 md:text-2xl lg:text-[2rem]',
+              'grid size-10 cursor-pointer place-content-center rounded-full border border-white/25 text-lg md:size-14 md:text-2xl lg:size-20 lg:text-[2rem]',
               {
-                'text-primary-900 bg-white': tab === 1,
+                'text-primary-900 bg-white': activeTab === tab,
               },
             )
           "
@@ -43,19 +53,25 @@ import { cn } from '@/lib/utils'
           The Terminology...
         </span>
         <h3 class="font-bellefair mb-200 text-2xl uppercase sm:text-[2.5rem] xl:text-[3.5rem]">
-          Launch Vehicle
+          {{ space_tech.term }}
         </h3>
         <p class="text-primary-300 text-[0.9375rem] leading-[180%] sm:text-base xl:text-lg">
-          A launch vehicle or carrier rocket is a rocket-propelled vehicle used to carry a payload
-          from Earth's surface to space, usually to Earth orbit or beyond. Our WEB-X carrier rocket
-          is the most powerful in operation. Standing 150 metres tall, it's quite an awe-inspiring
-          sight on the launch pad!
+          {{ space_tech.description }}
         </p>
       </article>
       <figure
         class="max-lg:full-width size-full min-h-60 max-xl:row-start-1 sm:min-h-96 xl:aspect-[1.01] xl:max-w-4xl"
       >
-        <div class="bg-primary-300 size-full">image</div>
+        <picture>
+          <!-- landscape image for large screens -->
+          <source :srcset="space_tech['image']['src']['portrait']" media="(min-width: 1280px)" />
+          <!-- portrait image for mobile (default fallback) -->
+          <img
+            :src="space_tech['image']['src']['landscape']"
+            :alt="space_tech['image']['alt']"
+            class="size-full object-cover"
+          />
+        </picture>
       </figure>
     </section>
   </main>

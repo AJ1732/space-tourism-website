@@ -1,7 +1,4 @@
 interface TabImage {
-  src: {
-    png: string
-    webp: string
-  }
+  src: Record<string, string>
   alt: string
 }
