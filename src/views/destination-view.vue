@@ -39,7 +39,9 @@ const handleTabChange = (tab: keyof typeof DESTINATION_TABS) => (activeTab.value
             :key="tab"
             @click="handleTabChange(tab)"
             :class="
-              cn('text-primary-300 relative py-3.5 uppercase', { 'text-white': activeTab === tab })
+              cn('text-primary-300 relative cursor-pointer py-3.5 uppercase', {
+                'text-white': activeTab === tab,
+              })
             "
           >
             {{ tab }}
