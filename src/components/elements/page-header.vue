@@ -1,11 +1,11 @@
 <script lang="ts" setup>
 import { cn } from '@/lib/utils'
 
-const { pageNum } = defineProps<{ pageNum: string | number; className?: string }>()
+const { pageNum } = defineProps<{ pageNum: string | number; class?: string }>()
 </script>
 
 <template>
-  <header :class="className">
+  <header :class="class">
     <h2
       :class="
         cn(

@@ -7,7 +7,9 @@ import { cn } from '@/lib/utils'
   <main
     class="xl:content-grid-flow w-full grid-rows-[auto_1fr] space-y-16 py-300 lg:py-600 xl:space-y-12"
   >
-    <PageHeader pageNum="03" className="max-lg:content-grid">Space Launch 101</PageHeader>
+    <PageHeader pageNum="03" class="max-xl:content-grid max-xl:mb-[5.5rem]"
+      >Space Launch 101</PageHeader
+    >
     <section
       :class="
         cn(
@@ -16,13 +18,13 @@ import { cn } from '@/lib/utils'
         )
       "
     >
-      <menu class="font-bellefair mb-500 flex gap-400 max-lg:mt-400 xl:flex-col">
+      <menu class="font-bellefair mb-500 flex gap-400 max-xl:mt-400 xl:flex-col">
         <li
           v-for="tab in [1, 2, 3]"
           :key="tab"
           :class="
             cn(
-              'grid size-10 place-content-center rounded-full border border-white/25 text-lg md:size-20 md:text-[2rem]',
+              'grid size-10 place-content-center rounded-full border border-white/25 text-lg md:size-14 lg:size-20 md:text-2xl lg:text-[2rem]',
               {
                 'text-primary-900 bg-white': tab === 1,
               },
@@ -50,7 +52,9 @@ import { cn } from '@/lib/utils'
           sight on the launch pad!
         </p>
       </article>
-      <figure class="max-lg:full-width size-full max-xl:row-start-1 xl:aspect-[1.01]">
+      <figure
+        class="max-lg:full-width size-full min-h-60 max-xl:row-start-1 sm:min-h-96 xl:aspect-[1.01] xl:max-w-4xl"
+      >
         <div class="bg-primary-300 size-full">image</div>
       </figure>
     </section>
