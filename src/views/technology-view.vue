@@ -5,18 +5,18 @@ import { cn } from '@/lib/utils'
 
 <template>
   <main
-    class="content-grid lg:content-grid-flow w-full grid-rows-[auto_1fr] space-y-300 py-300 lg:py-600"
+    class="xl:content-grid-flow w-full grid-rows-[auto_1fr] space-y-16 py-300 lg:py-600 xl:space-y-12"
   >
-    <PageHeader pageNum="03">Space Launch 101</PageHeader>
+    <PageHeader pageNum="03" className="max-lg:content-grid">Space Launch 101</PageHeader>
     <section
       :class="
         cn(
-          'grid items-center lg:grid-cols-[repeat(2,_auto)_1fr]',
-          'max-lg:justify-items-center max-lg:text-center',
+          'grid items-center max-xl:space-y-500 xl:grid-cols-[repeat(2,_auto)_1fr]',
+          'max-xl:justify-items-center max-xl:text-center',
         )
       "
     >
-      <menu class="font-bellefair flex gap-400 lg:flex-col">
+      <menu class="font-bellefair mb-500 flex gap-400 max-lg:mt-400 xl:flex-col">
         <li
           v-for="tab in [1, 2, 3]"
           :key="tab"
@@ -32,19 +32,25 @@ import { cn } from '@/lib/utils'
           {{ tab }}
         </li>
       </menu>
-      <article class="max-w-[30.6875rem] max-lg:space-y-100 lg:mr-400 lg:ml-800">
-        <span class="font-bellefair block text-lg text-white/50 uppercase sm:text-[2rem]">
+      <article
+        class="max-lg:space-y-100 max-lg:px-6 sm:max-w-lg lg:mr-400 lg:ml-800 xl:max-w-[30.6875rem]"
+      >
+        <span
+          class="font-bellefair mb-4 block text-lg text-white/50 uppercase sm:text-2xl xl:text-[2rem]"
+        >
           The Terminology...
         </span>
-        <h3 class="font-bellefair mb-200 text-2xl uppercase sm:text-[3.5rem]">Launch Vehicle</h3>
-        <p class="text-primary-300 text-[0.9375rem] sm:text-lg">
+        <h3 class="font-bellefair mb-200 text-2xl uppercase sm:text-[2.5rem] xl:text-[3.5rem]">
+          Launch Vehicle
+        </h3>
+        <p class="text-primary-300 text-[0.9375rem] leading-[180%] sm:text-base xl:text-lg">
           A launch vehicle or carrier rocket is a rocket-propelled vehicle used to carry a payload
           from Earth's surface to space, usually to Earth orbit or beyond. Our WEB-X carrier rocket
           is the most powerful in operation. Standing 150 metres tall, it's quite an awe-inspiring
           sight on the launch pad!
         </p>
       </article>
-      <figure class="max-lg:full-width size-full max-lg:row-start-1 max-lg:mt-16 lg:aspect-[1.01]">
+      <figure class="max-lg:full-width size-full max-xl:row-start-1 xl:aspect-[1.01]">
         <div class="bg-primary-300 size-full">image</div>
       </figure>
     </section>
