@@ -2,8 +2,8 @@
 import { computed, ref } from 'vue'
 
 import { DESTINATION_TABS } from '@/constants/destination'
-import { cn } from '@/lib/utils'
 import { PageHeader } from '@/components/elements'
+import { cn } from '@/lib/utils'
 
 const tabs = ['moon', 'mars', 'europa', 'titan']
 const activeTab = ref('moon')
@@ -24,9 +24,11 @@ const handleTabChange = (tab: keyof typeof DESTINATION_TABS) => (activeTab.value
       <figure
         class="relative my-7 flex size-[9.375rem] items-center justify-center overflow-hidden rounded-full max-lg:mx-auto sm:size-80 md:size-[30rem]"
       >
-        <div class="bg-primary-300 grid size-full place-content-center">
-          {{ destination.image }}
-        </div>
+        <img
+          :src="destination['image']['src']['png']"
+          :alt="destination['image']['alt']"
+          class="size-full"
+        />
       </figure>
       <div class="space-y-500 max-md:py-400 sm:max-w-[32.125rem] lg:mx-12 lg:max-w-[27.8125rem]">
         <div

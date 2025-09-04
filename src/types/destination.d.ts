@@ -5,7 +5,15 @@ interface DestinationDetail {
 
 interface Destination {
   destination: string
-  image: string
+  image: TabImage
   description: string
   details: DestinationDetail[]
+}
+
+interface TabImage {
+  src: {
+    png: string
+    webp: string
+  }
+  alt: string
 }
