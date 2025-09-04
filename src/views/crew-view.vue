@@ -1,6 +1,15 @@
 <script setup lang="ts">
+import { computed, ref } from 'vue'
+
 import { PageHeader } from '@/components/elements'
+import { CREW_TABS } from '@/constants/crew'
 import { cn } from '@/lib/utils'
+
+const tabs = [1, 2, 3, 4]
+const activeTab = ref(1)
+
+const crew = computed(() => CREW_TABS[activeTab.value])
+const handleTabChange = (tab: keyof typeof CREW_TABS) => (activeTab.value = tab)
 </script>
 
 <template>
@@ -19,32 +28,36 @@ import { cn } from '@/lib/utils'
           <span
             class="font-bellefair mb-200 text-lg uppercase opacity-50 sm:text-2xl lg:text-[2rem]"
           >
-            commander
+            {{ crew.position }}
           </span>
           <h3
             class="font-bellefair mb-300 text-2xl leading-[80%] uppercase sm:text-[2.5rem] lg:text-[3.5rem] lg:leading-[115%]"
           >
-            Douglas Hrley
+            {{ crew.name }}
           </h3>
           <p class="font-barlow text-primary-300 leading-[180%] lg:text-lg">
-            Douglas Gerald Hurley is an American engineer, former Marine Corps pilot and former NASA
-            astronaut. He launched into space for the third time as commander of Crew Dragon Demo-2.
+            {{ crew.description }}
           </p>
         </article>
         <menu class="flex items-center justify-center gap-200 lg:justify-start lg:gap-10">
           <li
-            v-for="tab in [1, 2, 3, 4]"
+            v-for="tab in tabs"
             :key="tab"
+            @click="handleTabChange(tab)"
             :class="
-              cn('size-[0.625rem] rounded-full bg-white/25 lg:size-[0.9375rem]', {
-                'bg-primary-300': tab === 1,
+              cn('size-[0.625rem] cursor-pointer rounded-full bg-white/25 lg:size-[0.9375rem]', {
+                'bg-primary-300': activeTab === tab,
               })
             "
           ></li>
         </menu>
       </div>
-      <figure class="aspect-[0.797] size-full">
-        <div class="bg-primary-300 size-full">image</div>
+      <figure class="sm:max-xl: aspect-[0.797] size-full max-h-[21.25rem] md:max-h-[35rem]">
+        <img
+          :src="crew['image']['src']['png']"
+          :alt="crew['image']['alt']"
+          class="size-full object-contain"
+        />
       </figure>
     </section>
   </main>
